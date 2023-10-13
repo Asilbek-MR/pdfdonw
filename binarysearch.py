@@ -19,7 +19,16 @@ def test_binarsearch(list, test):
 print(test_binarsearch(w,15))          
 
 
-
+def quicksort(arra):
+    if len(arra) < 2:
+        return arra
+    else:
+        pivot = arra[0]
+        grether = [ x for x in arra[1:] if x > pivot ]
+        less = [ x for x in arra[1:] if x < pivot ]
+        return quicksort(less) + [pivot] + quicksort(grether)
+    
+print(quicksort(w))
 
 
 
