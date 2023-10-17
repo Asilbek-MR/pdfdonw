@@ -47,8 +47,9 @@ def show(request):
             "videos": True
         }
     if request.method == "POST":
+        download = request.POST.get('download')
         buffer = BytesIO()
-        down = test_url.streams.get_by_resolution('720p')
+        down = test_url.streams.get_by_resolution(download)
         down.stream_to_buffer(buffer)
         buffer.seek(0)
         headers = {

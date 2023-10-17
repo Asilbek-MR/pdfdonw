@@ -30,10 +30,10 @@
                     {{i.resolution}}</option>
                   <hr>
                   {% endfor %}
-                  {% for i in options %}
+                  {% comment %} {% for i in options %}
                   <option value="{{i.abr}}">{{i.mime_type}} - {{i.abr}}</option>
                   <hr>
-                  {% endfor %}
+                  {% endfor %} {% endcomment %}
                   
                 </select>
                 <!--<input type="submit" value="Download" class="btn btn-primary
