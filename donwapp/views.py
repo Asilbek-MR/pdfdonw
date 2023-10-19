@@ -3,6 +3,8 @@ from pytube import YouTube
 from io import BytesIO
 from django.http import StreamingHttpResponse
 from .models import Feedback
+from pytube.exceptions import RegexMatchError
+import re
 
 # Create your views here.
 
@@ -35,6 +37,15 @@ def index(request):
 def show(request):
     global test_url
     video = request.GET.get('video')
+    try:
+        re.search(r"(?:v=|\/)([0-9A-Za-z_-]{11}).*", video)
+        test_url = YouTube(video)
+        options = test_url.title
+    # except RegexMatchError:
+    #     return render(request, 'done.html')
+    except Exception:
+        return render(request, 'done.html')
+        
     if video:
         test_url = YouTube(video)
         options = test_url.streams.filter(progressive=True)
