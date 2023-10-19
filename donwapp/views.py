@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from pytube import YouTube
 from io import BytesIO
 from django.http import StreamingHttpResponse
+from .models import Feedback
 
 # Create your views here.
 
@@ -60,6 +61,11 @@ def show(request):
     return render(request, 'about.html', context=context)
 
 def done(request):
+    name = request.POST.get('name')
+    email = request.POST.get('email')
+    subject = request.POST.get('subject')
+    text = request.POST.get('message')
+    Feedback.objects.create(name=name, email=email, subject=subject, text=text)
     return render(request, 'done.html')
 
 

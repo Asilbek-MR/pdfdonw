@@ -905,7 +905,8 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
 
-            <form class="php-email-form" method="post" >
+            <form class="hp-email-form" action="{% url 'done' %}" method="post" >
+              {% csrf_token %}
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
