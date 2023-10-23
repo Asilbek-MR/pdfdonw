@@ -3,8 +3,8 @@ from pytube import YouTube
 from io import BytesIO
 from django.http import StreamingHttpResponse
 from .models import Feedback
-from pytube.exceptions import RegexMatchError
 import re
+from django.contrib import messages
 
 # Create your views here.
 
@@ -76,6 +76,8 @@ def done(request):
     email = request.POST.get('email')
     subject = request.POST.get('subject')
     text = request.POST.get('message')
+    messages.success(request, "Successfully")
+    print("Success")
     Feedback.objects.create(name=name, email=email, subject=subject, text=text)
     return render(request, 'done.html')
 

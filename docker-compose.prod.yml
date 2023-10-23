@@ -19,8 +19,6 @@ services:
         volumes:
             - static_volume:/app/static
           
-
-
 volumes:
     static_volume:
   
