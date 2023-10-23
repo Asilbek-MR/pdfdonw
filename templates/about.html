@@ -23,8 +23,8 @@
           <div class="row m-0 col-12 col-lg-8">
             <div class="d-lg-block p-0">
               <form  method="post" id="form-video">
+                {% csrf_token %}
                 <select id="Download" name="download">
-                  {% csrf_token %}
                   {% for i in options %}
                   <option value="{{i.resolution}}">{{i.mime_type}} -
                     {{i.resolution}}</option>

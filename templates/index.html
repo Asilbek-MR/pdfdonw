@@ -100,8 +100,8 @@
       <!-- Slide 1 -->
       {% block content %}
       <form method="get" action="{% url 'show' %}" id="form-el"  >
-        <div class="carousel-item active">
         {% csrf_token %}
+      <div class="carousel-item active">
         <div class="carousel-container">
           <h2 class="animate__animated animate__fadeInDown">Download video from <span>YouTube</span></h2>
           
@@ -904,8 +904,8 @@
           <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
 
             <form class="hp-email-form" action="{% url 'index' %}" method="post" >
+              {% csrf_token %}
               <div class="row">
-                {% csrf_token %}
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                 </div>
