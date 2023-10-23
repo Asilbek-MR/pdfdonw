@@ -76,8 +76,6 @@ def done(request):
     email = request.POST.get('email')
     subject = request.POST.get('subject')
     text = request.POST.get('message')
-    messages.success(request, "Successfully")
-    print("Success")
     Feedback.objects.create(name=name, email=email, subject=subject, text=text)
     return render(request, 'done.html')
 
