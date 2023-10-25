@@ -72,11 +72,14 @@ def show(request):
     return render(request, 'about.html', context=context)
 
 def done(request):
+    return render(request, 'done.html')
+
+def feedback(request):
     name = request.POST.get('name')
     email = request.POST.get('email')
     subject = request.POST.get('subject')
     text = request.POST.get('message')
     Feedback.objects.create(name=name, email=email, subject=subject, text=text)
-    return render(request, 'done.html')
+    return render(request, 'feedback.html')
 
 
